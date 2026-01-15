@@ -13,6 +13,13 @@
 
 *Deployed on Solana Devnet with working Passkey authentication and gasless transactions.*
 
+### Screenshots
+
+| Login Page | Error Handling |
+|:----------:|:--------------:|
+| ![Login Page](./public/demo/login-page.png) | ![Error Overlay](./public/demo/error-overlay.png) |
+| *Premium mesh gradient UI with shimmer effects* | *Helpful error overlay with troubleshooting tips* |
+
 ---
 
 ## 🌟 Features
