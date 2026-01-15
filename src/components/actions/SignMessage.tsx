@@ -91,13 +91,13 @@ export function SignMessage() {
     if (!isConnected) return null;
 
     return (
-        <Card className="bg-white/5 border-white/10 backdrop-blur-md overflow-hidden">
+        <Card className="gradient-border glass-card hover-glow overflow-hidden">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                    <div className="p-2 rounded-lg bg-purple-500/20">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/20">
                         <PenTool className="h-5 w-5 text-purple-400" />
                     </div>
-                    Sign Message
+                    <span className="text-gradient">Sign Message</span>
                 </CardTitle>
                 <CardDescription>
                     Prove wallet ownership by signing a message with your passkey.
@@ -132,7 +132,7 @@ export function SignMessage() {
 
                 {/* Sign Button */}
                 <Button
-                    className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold transition-all duration-300 btn-shimmer"
                     onClick={handleSign}
                     disabled={loading || !message.trim()}
                 >

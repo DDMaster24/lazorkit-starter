@@ -100,14 +100,14 @@ export function TransactionHistory() {
     if (!isConnected) return null;
 
     return (
-        <Card className="bg-white/5 border-white/10 backdrop-blur-md col-span-1 md:col-span-2">
+        <Card className="gradient-border glass-card hover-glow col-span-1 md:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <div>
                     <CardTitle className="flex items-center gap-2">
-                        <div className="p-2 rounded-lg bg-blue-500/20">
+                        <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/20">
                             <History className="h-5 w-5 text-blue-400" />
                         </div>
-                        Recent Transactions
+                        <span className="text-gradient">Recent Transactions</span>
                     </CardTitle>
                     <CardDescription className="mt-1">
                         Last 5 transactions on your smart wallet
@@ -146,7 +146,7 @@ export function TransactionHistory() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="flex items-center justify-between p-3 bg-black/20 rounded-lg border border-white/5 hover:border-white/10 transition-colors group cursor-pointer"
+                                    className="flex items-center justify-between p-3 bg-black/30 rounded-lg border border-white/5 hover:border-purple-500/30 transition-colors group cursor-pointer"
                                     onClick={() => openExplorer(tx.signature)}
                                 >
                                     <div className="flex items-center gap-3">

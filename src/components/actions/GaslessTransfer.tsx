@@ -101,11 +101,13 @@ export function GaslessTransfer() {
     };
 
     return (
-        <Card className="bg-white/5 border-white/10 backdrop-blur-md">
+        <Card className="gradient-border glass-card hover-glow">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                    <Send className="h-5 w-5 text-green-400" />
-                    Transfer SOL
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/20">
+                        <Send className="h-5 w-5 text-green-400" />
+                    </div>
+                    <span className="text-gradient">Transfer SOL</span>
                 </CardTitle>
                 <CardDescription>
                     Send SOL to any Solana address.
@@ -162,7 +164,7 @@ export function GaslessTransfer() {
             </CardContent>
             <CardFooter>
                 <Button
-                    className="w-full bg-white text-black hover:bg-gray-200 font-bold"
+                    className="w-full bg-white text-black hover:bg-gray-100 font-bold btn-shimmer shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
                     onClick={handleTransfer}
                     disabled={loading || !smartWalletPubkey}
                 >
