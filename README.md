@@ -9,7 +9,7 @@
 
 ## 🎥 Live Demo
 
-**[➡️ Try the Live Demo](https://lazorkit-starter.vercel.app)** 
+**[➡️ Try the Live Demo](https://lazorkit-starter-two.vercel.app)** 
 
 *Deployed on Solana Devnet with working Passkey authentication and gasless transactions.*
 
