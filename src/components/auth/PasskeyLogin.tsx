@@ -8,9 +8,9 @@
  * to authenticate users without seed phrases or browser extensions.
  * 
  * Features:
- * - Animated loading states
+ * - Animated mesh gradient background with floating orbs
+ * - Shimmer button effect
  * - Toast notifications for success/error
- * - Responsive design
  * - Premium glassmorphism UI
  * 
  * @example
@@ -54,35 +54,37 @@ export function PasskeyLogin() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black p-4">
-            {/* Animated background grid */}
-            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
-            <div className="absolute h-full w-full bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
+        <div className="flex min-h-screen items-center justify-center mesh-gradient-bg p-4 overflow-hidden">
+            {/* Floating Orbs */}
+            <div className="floating-orb floating-orb-1" />
+            <div className="floating-orb floating-orb-2" />
+            <div className="floating-orb floating-orb-3" />
+
+            {/* Grid Pattern Overlay */}
+            <div className="absolute inset-0 grid-pattern pointer-events-none" />
+
+            {/* Radial Fade Overlay */}
+            <div className="absolute h-full w-full bg-black/40 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)] pointer-events-none" />
 
             <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="z-10"
             >
-                <Card className="z-10 w-full max-w-md border-white/10 bg-black/50 backdrop-blur-xl shadow-2xl shadow-purple-900/20">
-                    <CardHeader className="text-center space-y-4">
-                        {/* Animated logo */}
+                <Card className="w-full max-w-md gradient-border glass-card hover-glow">
+                    <CardHeader className="text-center space-y-4 pb-4">
+                        {/* Animated logo with pulse */}
                         <motion.div
-                            className="mx-auto bg-gradient-to-tr from-purple-500 to-green-500 p-4 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg shadow-green-900/30"
-                            animate={{
-                                boxShadow: [
-                                    '0 10px 40px rgba(34, 197, 94, 0.2)',
-                                    '0 10px 60px rgba(168, 85, 247, 0.3)',
-                                    '0 10px 40px rgba(34, 197, 94, 0.2)',
-                                ]
-                            }}
-                            transition={{ duration: 3, repeat: Infinity }}
+                            className="mx-auto bg-gradient-to-tr from-purple-500 via-blue-500 to-green-500 p-4 rounded-2xl w-20 h-20 flex items-center justify-center logo-pulse"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
                         >
                             <Fingerprint className="text-white h-10 w-10" />
                         </motion.div>
 
                         <div className="space-y-2">
-                            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                            <CardTitle className="text-3xl font-bold text-gradient">
                                 LazorKit Starter
                             </CardTitle>
                             <CardDescription className="text-gray-400 text-base">
@@ -93,10 +95,10 @@ export function PasskeyLogin() {
                     </CardHeader>
 
                     <CardContent className="space-y-6">
-                        {/* Login Button */}
+                        {/* Login Button with Shimmer */}
                         <Button
                             size="lg"
-                            className="w-full bg-white text-black hover:bg-gray-100 transition-all duration-300 font-bold h-14 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)]"
+                            className="w-full bg-white text-black hover:bg-gray-100 transition-all duration-300 font-bold h-14 text-lg btn-shimmer shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]"
                             onClick={handleLogin}
                             disabled={isConnecting}
                         >
@@ -113,40 +115,43 @@ export function PasskeyLogin() {
                             )}
                         </Button>
 
-                        {/* Feature pills */}
+                        {/* Feature pills with glass effect */}
                         <div className="flex flex-wrap justify-center gap-2">
                             <motion.div
-                                className="flex items-center gap-1 text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-full border border-white/10"
+                                className="flex items-center gap-1.5 text-xs text-gray-400 glass-card px-3 py-1.5 rounded-full"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
+                                whileHover={{ scale: 1.05, y: -2 }}
                             >
-                                <Shield className="h-3 w-3 text-green-500" />
+                                <Shield className="h-3.5 w-3.5 text-green-400" />
                                 No Seed Phrase
                             </motion.div>
                             <motion.div
-                                className="flex items-center gap-1 text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-full border border-white/10"
+                                className="flex items-center gap-1.5 text-xs text-gray-400 glass-card px-3 py-1.5 rounded-full"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
+                                whileHover={{ scale: 1.05, y: -2 }}
                             >
-                                <Zap className="h-3 w-3 text-yellow-500" />
+                                <Zap className="h-3.5 w-3.5 text-yellow-400" />
                                 Gasless
                             </motion.div>
                             <motion.div
-                                className="flex items-center gap-1 text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-full border border-white/10"
+                                className="flex items-center gap-1.5 text-xs text-gray-400 glass-card px-3 py-1.5 rounded-full"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
+                                whileHover={{ scale: 1.05, y: -2 }}
                             >
-                                <Fingerprint className="h-3 w-3 text-purple-500" />
+                                <Fingerprint className="h-3.5 w-3.5 text-purple-400" />
                                 Biometric
                             </motion.div>
                         </div>
 
                         {/* Footer */}
-                        <p className="text-xs text-center text-gray-600 pt-2">
-                            Powered by LazorKit & Solana
+                        <p className="text-xs text-center text-gray-500 pt-2">
+                            Powered by <span className="text-purple-400">LazorKit</span> & <span className="text-green-400">Solana</span>
                         </p>
                     </CardContent>
                 </Card>

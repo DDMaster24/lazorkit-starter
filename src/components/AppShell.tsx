@@ -60,12 +60,20 @@ export function AppShell() {
 
     // Render authenticated dashboard
     return (
-        <div className="min-h-screen bg-black text-white p-4 sm:p-8 font-sans bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-black to-black">
+        <div className="min-h-screen mesh-gradient-bg text-white p-4 sm:p-8 font-sans overflow-hidden relative">
+            {/* Floating Orbs for dashboard */}
+            <div className="floating-orb floating-orb-1 opacity-50" />
+            <div className="floating-orb floating-orb-2 opacity-50" />
+            <div className="floating-orb floating-orb-3 opacity-50" />
+
+            {/* Grid Pattern */}
+            <div className="absolute inset-0 grid-pattern pointer-events-none" />
+
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mx-auto max-w-6xl space-y-8"
+                className="mx-auto max-w-6xl space-y-8 relative z-10"
             >
                 {/* Header */}
                 <header className="flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-white/10 pb-6">
